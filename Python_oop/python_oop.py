@@ -1,13 +1,12 @@
 """
-
-This assignment is building on the shop program which I developed in the video series. You are tasked to add some
-additional functionality:
+ SHOP Assignment
+ 
 Functionality
- The shop CSV should hold the initial cash value for the shop.
- Read in customer orders from a CSV file.
+The shop CSV should hold the initial cash value for the shop.
+Read in customer orders from a CSV file.
 – That file should include all the products they wish to buy and in what quantity.
 – It should also include their name and their budget.
- The shop must be able to process the orders of the customer.
+The shop must be able to process the orders of the customer.
 – Update the cash in the shop based on money received.
 * It is important that the state of the shop be consistent.
 * You should create customer test files (CSVs) which cannot be completed by the shop e.g. customer wants 400
@@ -15,18 +14,19 @@ loaves of bread but the shop only has 20, or the customer wants 2 cans of coke b
 * If these files don’t exist marks penalties will be applied.
 – Know whether or not the shop can fill an order.
 * Thrown an appropriate error.
- Operate in a live mode, where the user can enter a product by name, specify a quantity, and pay for it. The user should
+Operate in a live mode, where the user can enter a product by name, specify a quantity, and pay for it. The user should
 be able to buy many products in this way.
 Notes
- The above described functionality should be completed in Python and C. This is to be done in a procedural programming
+The above described functionality should be completed in Python and C. This is to be done in a procedural programming
 style.
- The second part of the assessment involves replicating the functionality of the shop in Java. This must be done in an
+The second part of the assessment involves replicating the functionality of the shop in Java. This must be done in an
 Object Oriented manner.
- You must complete a short report, around 3-5 pages, which compares the solutions achieved using the procedural
+You must complete a short report, around 3-5 pages, which compares the solutions achieved using the procedural
 approach and the object oriented approach.
- The live mode, and the input files, should have the exact same behaviour in ALL implementations.
+The live mode, and the input files, should have the exact same behaviour in ALL implementations.
 – For example I should be able to use the Java implementation in the same way as the C one i.e. same CSV files,
 and the same process when doing an order in live mode.
+– The “user experience” of each implementation should be identical.
 – The “user experience” of each implementation should be identical.
 
 """
@@ -298,6 +298,7 @@ while active:  # while active(True) - keep repeating everything inside
                         active_product_list.append(data)
 
                     else:
+                        print("---------------------------------------------------")
                         print('')
                         print('Sorry ! ')
                         print(f'Not enough {custom_product} in stock ')
@@ -316,6 +317,7 @@ while active:  # while active(True) - keep repeating everything inside
                     total = total + float(product['sub_tot'])
                 
                 if float(total) > float(custom_budget):
+                    print("---------------------------------------------------")
                     print('SORRY! ')
                     print(f"Your budget is {custom_budget}")
                     print(f'The total cost of all items is ...! {total}')
@@ -325,6 +327,7 @@ while active:  # while active(True) - keep repeating everything inside
                     #print(f"Shop has {round(float(s.cash), 2)} in cash")
 
                 else:
+                    print("---------------------------------------------------")
                     print('SUCCESS! ')
                     print(f"Your budget is {custom_budget}")
                     print("You have enough money")
@@ -365,7 +368,7 @@ while active:  # while active(True) - keep repeating everything inside
                 print("")
 
                 if int(File_count) > int(len(all_csv_files)):
-                    #If the user selects 
+                    #If the user selects an item not in the list show a message
                     print("Sorry, selected item is not available:")
                 else:
                     Index_adjust = 1
